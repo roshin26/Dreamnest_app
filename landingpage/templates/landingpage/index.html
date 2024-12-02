@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %} 
+
+{% block content %} 
+
+<div class="container flex-column pt-3">
+    <section class="text-center">
+        <h1 class="main-title mx-auto">Find the Space You’ll Love to Call Home!</h1>
+
+        <p class="pt-4">
+            At DreamNest, we connect you to the home of your dreams. 
+            From cozy apartments to luxury villas, we make finding your perfect space effortless.
+        </p>
+
+        <!-- Static image below paragraph -->
+        <img src="{% static 'images/bg-banner-1.jpg' %}" alt="Home Banner" class="img-fluid pt-4">
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %}Delete Property{% endblock %} 
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-2">Confirm Property Deletion</h1>
+    <div class="d-flex justify-content-center pt-3">
+        <form method="post" class="text-center">
+            {% csrf_token %} 
+            <p>Are you sure you want to delete?</p> 
+            <button type="submit" class="btn btn-danger btn-lg px-5 py-2">Confirm</button>
+            <a href="{% url 'properties' %}" class="btn btn-primary btn-lg px-5 py-2">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

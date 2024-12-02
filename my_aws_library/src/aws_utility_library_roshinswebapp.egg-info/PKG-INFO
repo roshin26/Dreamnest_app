@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aws_utility_library_roshinswebapp
+Version: 1.0.1
+Summary: A Python library for AWS utilities (Lambda, SNS, SQS, DynamoDB, and S3)
+Author-email: Roshin Philip <philip.roshin@gmail.com>
+License: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3<2.0,>=1.20
+
+# AWS Utility Library
+
+A Python library to simplify interactions with AWS services (Lambda, SNS, SQS, DynamoDB, and S3). This library provides prebuilt utilities to help developers manage AWS resources with minimal effort.
+
+---
+
+## Features
+- Lambda: Invoke functions.
+- SNS: Publish messages to topics with optional subjects.
+- SQS: Retrieve and delete messages from queues.
+- DynamoDB: Store,Scan and get items in tables.
+- S3: Upload files in buckets.
+
+---
+
+

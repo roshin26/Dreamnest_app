@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Property Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="row g-0">
+            <!-- Property Image -->
+            <div class="col-md-6">
+                {% if property.image_key %}
+                    <img src="https://{{ s3bucket }}.s3.amazonaws.com/{{ property.image_key }}" 
+                         class="img-fluid rounded-start property-pic" 
+                         alt="{{ property.title }}">
+                {% else %}
+                    <img src="{% static 'images/default-placeholder.png' %}" 
+                         class="img-fluid rounded-start property-pic" 
+                         alt="Default Property Image">
+                {% endif %}
+            </div>
+
+            <!-- Property Details -->
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h3 class="card-title">{{ property.title }}</h3>
+                    <h5 class="text-muted">{{ property.location }}</h5>
+                    <p class="card-text">
+                        <strong>Description:</strong><br>
+                        {{ property.description }}
+                    </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Price:</strong> €{{ property.price }}</li>
+                        <li class="list-group-item"><strong>Property Type:</strong> {{ property.property_type }}</li>
+                        <li class="list-group-item"><strong>Bedrooms:</strong> {{ property.bedrooms }}</li>
+                        <li class="list-group-item"><strong>Bathrooms:</strong> {{ property.bathrooms }}</li>
+                        <li class="list-group-item"><strong>Area:</strong> {{ property.area }} sq ft</li>
+                    </ul>
+                    <div class="text-center mt-3">
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary w-25" style="margin:5px;">Request Viewing</button>
+                        </form>
+                        {% if request.user.is_staff %}
+                            <a href="{% url 'edit_property' property_id=property_id %}" 
+                               class="btn btn-secondary w-25">Edit</a>
+                            <a href="{% url 'delete_property' property_id=property_id %}" 
+                               class="btn btn-danger w-25">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

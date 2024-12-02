@@ -1,0 +1,51 @@
+{% load static %}
+<header>
+    {% with request.resolver_match.url_name as url_name %}
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!--logo-->
+            <a class="navbar-brand" href="#"><img src="{% static 'images/mylogo.webp' %}" alt="Recipe sharing logo" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--navigation items-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'home'%}active{% endif %}" aria-current="page" href="{% url 'home'%}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'properties'%}active{% endif %}" href="{% url 'properties' %}">Properties</a>
+                    </li>
+                    {% if request.user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'add_property'%}active{% endif %}" href="{% url 'add_property' %}">Add Property</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'notifications'%}active{% endif %}" href="{% url 'notifications' %}">Notifications</a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'accounts_logout'%}active{% endif %}" href="/accounts/logout/">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'accounts_signup'%}active{% endif %}" href="/accounts/signup/">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if url_name == 'accounts_login'%}active{% endif %}" href="/accounts/login/">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                
+                <!-- Form for search functionality-->
+               <form method="get" class="d-flex" role="search">
+                 <input type="text" name="q" class="form-control w-150 me-2" placeholder="Search by title, location, or description" value="{{ search_query|default:'' }}">
+                  <button type="submit" class="btn btn-outline-light">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    {% endwith %}
+</header>

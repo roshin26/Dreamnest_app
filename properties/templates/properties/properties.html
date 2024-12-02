@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Properties{% endblock %}
+
+{% block content %}
+<h1 class="text-center p-2">Properties</h1>
+<div class="container d-flex flex-row flex-wrap justify-content-center">
+    {% for property in properties %}
+        <a href="{% url 'property_detail' property_id=property.property_id %}" class="properties" aria-label="Click to view Property" style="text-decoration: none;">
+            <div class="card m-3" style="width: 18rem;">
+                {% if property.image_url %}
+                    <img 
+                        src="{{ property.image_url }}" 
+                        class="card-img-top" 
+                        style="height: 350px; object-fit: cover" 
+                        alt="Property Image"
+                    >
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title">{{ property.title }}</h2>
+                    <p class="card-text">{{ property.location }}</p>
+                </div>
+            </div>
+        </a>
+    {% empty %}
+        <p class="text-center">No properties available at the moment. Please check back later.</p>
+    {% endfor %}
+</div>
+{% endblock %}

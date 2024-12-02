@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Notifications</h2>
+    <div class="notification-panel mt-4">
+        {% if notifications %}
+            <ul class="list-group">
+                {% for notification in notifications %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <p><strong>Message:</strong> {{ notification.message }}</p>
+                            <p><small><strong>Timestamp:</strong> {{ notification.timestamp }}</small></p>
+                        </div>
+                        <form method="post" action="{% url 'delete_notification' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="receipt_handle" value="{{ notification.receipt_handle }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Mark as Read</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="alert alert-info text-center">No new notifications.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

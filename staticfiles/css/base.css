@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    /** Fonts */
+    --title: 'EB Garamond', serif;
+    --main-font: 'Roboto', serif;
+
+    /* Colours */
+    --background: #3f006a0f;
+    --blue: #0d6efd;
+    --black: #000;
+    --off-white: #f6f6f6;
+    --purple:#d2cbfc;
+    --lightpurple:#F5EFFF;
+    --formpurple:#A594F9;
+    --white: #fff;
+    --orange: #ffbf50;
+    --darkgrey: #666;
+    --darkgreen:#518756;
+    --beige:#ffffff;
+    --lightgreen:#D5ED9F;
+
+    /* Utils */
+    --smal-box-shadow: 1px -1px 7px 0 #00000061;
+    --border: 1px solid #00000030;
+}
+
+/* Header */
+.navbar {
+    background-color: var(--purple);
+    box-shadow: var(--smal-box-shadow);
+}
+
+a.nav-link {
+    color: var(--black);
+}
+
+img.logo {
+    width: auto;
+    max-width: 100%;
+    max-height: 90px;
+}
+
+/* main design */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title);
+}
+
+main {
+    flex: 1 0 auto;
+    background-color: var(--lightpurple);
+}
+
+#id_password_helptext{
+    display: none !important;
+}
+#div_id_remember{
+    display: flex !important;
+    gap: 1.5rem !important;
+    justify-content: center;
+}
+/* my footer*/
+footer {
+    flex-shrink: 0;
+    background-color: var(--purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: var(--border);
+    
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    color:var(--black);
+}
+
+.active {
+    border-bottom: 2px solid var(--blue);
+    font-weight: 500;
+}
+
+/* form */
+.form {
+    width: 80%;
+    margin: 3% auto;
+    box-shadow: var(--smal-box-shadow);
+    border-radius: 5px;
+    background-color: var(--purple);
+    
+}
+
+.card{
+    height: 90%;
+    margin-top: 1rem;
+    background-color:var(--purple);
+
+}
+.property-pic{
+    width: 100%;
+    height: auto;
+}

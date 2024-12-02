@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/aws_utility_library_roshinswebapp/__init__.py
+src/aws_utility_library_roshinswebapp/dynamodb_utils.py
+src/aws_utility_library_roshinswebapp/lambda_utils.py
+src/aws_utility_library_roshinswebapp/s3_utils.py
+src/aws_utility_library_roshinswebapp/sns_utils.py
+src/aws_utility_library_roshinswebapp/sqs_utils.py
+src/aws_utility_library_roshinswebapp.egg-info/PKG-INFO
+src/aws_utility_library_roshinswebapp.egg-info/SOURCES.txt
+src/aws_utility_library_roshinswebapp.egg-info/dependency_links.txt
+src/aws_utility_library_roshinswebapp.egg-info/requires.txt
+src/aws_utility_library_roshinswebapp.egg-info/top_level.txt
