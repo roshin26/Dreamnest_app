@@ -36,10 +36,12 @@
                         <li class="list-group-item"><strong>Area:</strong> {{ property.area }} sq ft</li>
                     </ul>
                     <div class="text-center mt-3">
+                        {% if request.user.is_authenticated and not request.user.is_staff %}
                         <form method="post">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary w-25" style="margin:5px;">Request Viewing</button>
                         </form>
+                        {% endif %}
                         {% if request.user.is_staff %}
                             <a href="{% url 'edit_property' property_id=property_id %}" 
                                class="btn btn-secondary w-25">Edit</a>
